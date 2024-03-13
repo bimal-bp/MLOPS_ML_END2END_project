@@ -1,0 +1,29 @@
+name: workflow
+
+on:
+  push:
+    branches:
+      - main
+    paths-ignore:
+      - 'README.md'
+  
+permissions:
+  id-token: write
+  contents: read
+
+jobs:
+  integration:
+    name: :Continues Integration
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code 
+        uses: actions/checkout@v3
+      with:
+        repository: bimal-bp/MLOPS_ML_END2END_project
+        token: ${{secrets.GITHUB_TOKEN}}
+        ref: main
+
+      - name: Lint code 
+        run: echo "Linting Repositiry"
+      - name: Run unit tests
+        run: echo " Running unit tests"
