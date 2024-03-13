@@ -13,17 +13,18 @@ permissions:
 
 jobs:
   integration:
-    name: :Continues Integration
+    name: Continues Integration
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout Code 
+      - name: Checkout Code
         uses: actions/checkout@v3
-      with:
-        repository: bimal-bp/MLOPS_ML_END2END_project
-        token: ${{secrets.GITHUB_TOKEN}}
-        ref: main
+        with:
+          repository: bimal-bp/MLOPS_ML_END2END_project
+          token: ${{ secrets.GITHUB_TOKEN }}
+          ref: main
 
-      - name: Lint code 
-        run: echo "Linting Repositiry"
+      - name: Lint code
+        run: echo "Linting Repository"
+
       - name: Run unit tests
-        run: echo " Running unit tests"
+        run: echo "Running unit tests"
